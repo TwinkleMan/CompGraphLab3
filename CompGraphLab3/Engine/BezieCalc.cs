@@ -1,5 +1,4 @@
 ﻿using System;
-using CompGraphLab3.Engine;
 
 namespace CompGraphLab3.Engine
 {
@@ -122,6 +121,7 @@ namespace CompGraphLab3.Engine
             Point3D[,] result = new Point3D[coordLine.GetLength(0), coordLine.GetLength(0)];
             float[] input1, input2;
             float[] temp = new float[coordLine.GetLength(0)*3];
+            float tempCalc = 0;
 
 
             //convert input to line array
@@ -155,9 +155,11 @@ namespace CompGraphLab3.Engine
                         float temp1 = input1[i * 3 + k];
                         float temp2 = input2[k * 3 + j];
                         float temp3 = input1[i * 3 + k] * input2[k * 3 + j];
-                        temp[i * 3 + j] += input1[i * 3 + k] * input2[k * 3 + j];
+                        tempCalc += input1[i * 3 + k] * input2[k * 3 + j];
                     }
-                        
+                    temp[i * 3 + j] = tempCalc;
+                    tempCalc = 0.0f;
+
                 }
             }
 
@@ -180,13 +182,26 @@ namespace CompGraphLab3.Engine
         private Point3D[,] BuildPointArray(float[] array, int size)
         {
             Point3D[,] result = new Point3D[size,size];
-            int count = 3;
 
-            for (int i = 0; i < size; i++)
+            for (int i = 0, k = 0; i < size; ++i)
             {
                 for (int j = 0; j < size; j++)
                 {
-                    result[i, j] = new Point3D(array[i * size + j * count], array[i * size + j * count + 1], array[i * size + j * count + 2]);
+                    for (int l = 0; l < 3; l++)
+                    {
+                        if (l == 0)
+                        {
+                            result[i, j].SetX(array[k++]);
+                        }
+                        else if (l == 1)
+                        {
+                            result[i, j].SetY(array[k++]);
+                        }
+                        else
+                        {
+                            result[i, j].SetZ(array[k++]);
+                        }
+                    }
                 }
             }
 
@@ -195,12 +210,16 @@ namespace CompGraphLab3.Engine
 
         public Point3D[,] Rotate(BeziePatch patch, float angle, int axis)
         {
+            float minNumber = 0.0001f;
             double angelRadians = angle * Math.PI / 180;
             Point3D[] matrix = patch.GetAnchorsRow();
             float cosphi = (float)Math.Cos(angelRadians);
             float sinphi = (float)Math.Sin(angelRadians);
             float[,] transform = null;
             Point3D[,] result;
+
+            if (Math.Abs(cosphi) < minNumber) cosphi = 0;
+            if (Math.Abs(sinphi) < minNumber) sinphi = 0;
 
             if (axis == 0)
             {
@@ -215,6 +234,34 @@ namespace CompGraphLab3.Engine
             return result;
         }
 
+        public void MoveObject(BeziePatch patch, float moveX, float moveY, float moveZ)
+        {
+            Point3D[,] pointMatrix = patch.GetAnchors();
+            int size = pointMatrix.GetLength(0);
+
+            for (int i = 0, k = 0; i < size; ++i)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    for (int l = 0; l < 3; l++)
+                    {
+                        if (l == 0)
+                        {
+                            pointMatrix[i, j].SetX(pointMatrix[i, j].GetX() + moveX);
+                        }
+                        else if (l == 1)
+                        {
+                            pointMatrix[i, j].SetY(pointMatrix[i, j].GetY() + moveY);
+                        }
+                        else
+                        {
+                            pointMatrix[i, j].SetZ(pointMatrix[i, j].GetZ() + moveZ);
+                        }
+                    }
+                }
+            }
+
+        }
 
     }
 }

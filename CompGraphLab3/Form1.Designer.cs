@@ -38,6 +38,13 @@
             this.x_btn = new System.Windows.Forms.Button();
             this.axisLbl = new System.Windows.Forms.Label();
             this.axisName_lbl = new System.Windows.Forms.Label();
+            this.lbl_angleDebug = new System.Windows.Forms.Label();
+            this.btn_reset = new System.Windows.Forms.Button();
+            this.btn_set = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.openGLControl1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -144,11 +151,78 @@
             this.axisName_lbl.TabIndex = 11;
             this.axisName_lbl.Text = "Текущая ось:";
             // 
+            // lbl_angleDebug
+            // 
+            this.lbl_angleDebug.AutoSize = true;
+            this.lbl_angleDebug.Location = new System.Drawing.Point(464, 473);
+            this.lbl_angleDebug.Name = "lbl_angleDebug";
+            this.lbl_angleDebug.Size = new System.Drawing.Size(35, 13);
+            this.lbl_angleDebug.TabIndex = 13;
+            this.lbl_angleDebug.Text = "label1";
+            // 
+            // btn_reset
+            // 
+            this.btn_reset.Location = new System.Drawing.Point(12, 555);
+            this.btn_reset.Name = "btn_reset";
+            this.btn_reset.Size = new System.Drawing.Size(380, 50);
+            this.btn_reset.TabIndex = 14;
+            this.btn_reset.Text = "Сброс фигуры";
+            this.btn_reset.UseVisualStyleBackColor = true;
+            this.btn_reset.Click += new System.EventHandler(this.btn_reset_Click);
+            // 
+            // btn_set
+            // 
+            this.btn_set.Location = new System.Drawing.Point(402, 555);
+            this.btn_set.Name = "btn_set";
+            this.btn_set.Size = new System.Drawing.Size(380, 50);
+            this.btn_set.TabIndex = 15;
+            this.btn_set.Text = "Создать задающий многоугольник";
+            this.btn_set.UseVisualStyleBackColor = true;
+            this.btn_set.Click += new System.EventHandler(this.btn_set_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(352, 458);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Сдвиг";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(348, 534);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 17;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(454, 534);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 18;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(560, 534);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 19;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(794, 552);
+            this.ClientSize = new System.Drawing.Size(794, 617);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_set);
+            this.Controls.Add(this.btn_reset);
+            this.Controls.Add(this.lbl_angleDebug);
             this.Controls.Add(this.axisLbl);
             this.Controls.Add(this.axisName_lbl);
             this.Controls.Add(this.axis_lbl);
@@ -179,6 +253,13 @@
         private System.Windows.Forms.Button x_btn;
         private System.Windows.Forms.Label axisLbl;
         private System.Windows.Forms.Label axisName_lbl;
+        private System.Windows.Forms.Label lbl_angleDebug;
+        private System.Windows.Forms.Button btn_reset;
+        private System.Windows.Forms.Button btn_set;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 

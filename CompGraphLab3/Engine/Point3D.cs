@@ -1,6 +1,4 @@
-﻿using CompGraphLab3.Engine;
-
-namespace CompGraphLab3.Engine
+﻿namespace CompGraphLab3.Engine
 {
     public struct Point3D
     {

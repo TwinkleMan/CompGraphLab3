@@ -17,3 +17,4 @@ D:\.net\CompGraphLab3\CompGraphLab3\obj\Debug\CompGraphLab3.csproj.CoreCompileIn
 D:\.net\CompGraphLab3\CompGraphLab3\obj\Debug\CompGraphLab3.csproj.CopyComplete
 D:\.net\CompGraphLab3\CompGraphLab3\obj\Debug\CompGraphLab3.exe
 D:\.net\CompGraphLab3\CompGraphLab3\obj\Debug\CompGraphLab3.pdb
+D:\.net\CompGraphLab3\CompGraphLab3\obj\Debug\CompGraphLab3.SkeletonCreation.resources
